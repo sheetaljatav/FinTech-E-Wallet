@@ -44,7 +44,7 @@ The application consists of six independent microservices:
 ### How to run payment microservice?
 
 **For Live Demo of the application**:
-
+ 
 please first create the roles in the database using the sql code below 
 ```
 INSERT INTO roles(NAME) VALUES('ROLE_USER');
