@@ -33,7 +33,7 @@ The application consists of six independent microservices:
   - Consumes Kafka events and sends email notifications.
   - Built using Spring Boot, Kafka Consumer, Spring Data JPA, MySQL, and Swagger.
  
-  - 
+  
 ### Tools you will need
 
 * Maven 3.x as your build tool
