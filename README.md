@@ -1,4 +1,6 @@
-## e-wallet micro service with JWT Oauth2 Authentication and Authorization with Kafka stream-processing between the micro services and Email Notifications with Swagger2 Documentation
+## e-wallet micro service with JWT Oauth2 Authentication and Authorization with Kafka stream-processing between the micro services and Email Notifications with Swagger2 Documentation 
+
+- Event-driven architecture using Apache Kafka for asynchronous communication between microservices.
 
 ## Overview
 
