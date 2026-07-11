@@ -2,20 +2,38 @@
 
 ## Overview
 
-### The architecture is composed by five services: 
+## Overview
 
-   * [`micro-gateway-service`] **Spring Cloud Gateway** aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
+The application consists of six independent microservices:
 
-   * [`micro-eureka-service`] This is the Eureka Server which holds the information about all client-service applications. Eureka server knows all the client applications running on each port and IP address. It is also known as Discovery Server. 
+- **micro-gateway-service**
+  - Spring Cloud Gateway that acts as the single entry point for all APIs.
+  - Handles request routing, authentication, security, monitoring, and rate limiting.
 
-   * [`micro-auth-service`] Is an **Authorisation server** which provides REST service for creating user credentials and access_token created with `Spring Boot, Spring Cloud JWT Oauth2, Spring Data JPA, MySQL
+- **micro-eureka-service**
+  - Eureka Discovery Server responsible for service registration and discovery.
+  - Allows services to locate and communicate with each other dynamically.
 
-   * [`micro-account-service`] A REST service created with `Spring Boot, Spring Data JPA, MySQL, Kafka Producer and swagger for creating and updating user Accounts and Wallet` which is used as a **resource service**
+- **micro-auth-service**
+  - Authentication and Authorization service built with Spring Boot.
+  - Implements JWT, OAuth2, Spring Security, Spring Data JPA, and MySQL.
+  - Responsible for user registration, login, role management, and token generation.
 
-   * [`micro-transaction-service`] A REST service created with `Spring Boot, Spring Data JPA, MySQL, Kafka Producer and swagger for transactions such as Deposit, Withdrawal and Transfer` which is used as a  **resource service**
-  
-   * [`micro-notification-service`] A REST service created with `Spring Boot, Spring Data JPA, MySQL, Kafka Consumer and swagger for email notifications on Account Opening, as Deposit, Withdrawal and Transfer` which is used as a  **resource service**
+- **micro-account-service**
+  - Resource service responsible for Account and Wallet management.
+  - Built using Spring Boot, Spring Data JPA, MySQL, Kafka Producer, and Swagger.
+  - Publishes account creation events to Kafka.
 
+- **micro-transaction-service**
+  - Handles wallet funding, withdrawals, and transfers.
+  - Built using Spring Boot, Spring Data JPA, MySQL, Kafka Producer, and Swagger.
+  - Publishes transaction events for asynchronous processing.
+
+- **micro-notification-service**
+  - Consumes Kafka events and sends email notifications.
+  - Built using Spring Boot, Kafka Consumer, Spring Data JPA, MySQL, and Swagger.
+ 
+  - 
 ### Tools you will need
 
 * Maven 3.x as your build tool
